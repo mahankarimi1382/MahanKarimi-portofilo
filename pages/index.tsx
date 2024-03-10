@@ -17,7 +17,12 @@ import profile from "../public/Images/Profile.jpeg"
 import Image from "next/image";
 import App from "./components/experience";
 import Experience from "./components/experience";
+import ResumeModal from "./components/ResumeModal";
+import { useState } from "react";
+
 export default function Home() {
+  const [modalVal, setModalVal] = useState(false)
+
   const springs = useSpring({
 
     from: { opacity: 0, x: -100, y: 100 },
@@ -32,6 +37,8 @@ export default function Home() {
   return (
 
     <div className="   bg-slate-950 flex flex-col justify-between">
+      {modalVal && <ResumeModal setModalVal={setModalVal} />}
+
       <div className=" h-16">
         <Navbar />
       </div>
@@ -53,7 +60,7 @@ export default function Home() {
                   ...springs
                 }}>
                 <p>Hey! How nice of you to look at my personal site, Thank you!.</p>
-                <button className=" w-1/3 border-2 p-2 flex items-center justify-center transition-all rounded-sm hover:bg-sky-300 hover:text-black">view resume</button>
+                <button onClick={() => setModalVal(true)} className=" w-1/3 border-2 p-2 flex items-center justify-center transition-all rounded-sm hover:bg-sky-300 hover:text-black">view resume</button>
               </animated.div>
               <animated.div
                 className="flex flex-col gap-2"
@@ -75,7 +82,7 @@ export default function Home() {
               </animated.div>
 
             </div>
-            <div className=" bottom-10 -right-5 absolute rounded-full w-[170%] h-[800px] border-[3px] border-sky-300 whitespace-normal">
+            <div className=" bottom-10 -right-5 absolute rounded-full w-[170%] h-[800px] border-t-[4px] border-l-2  border-r-[3px] animate-[spin_8s_ease-in-out_infinite] border-sky-300 whitespace-normal">
             </div>
           </div>
         </div>
@@ -173,7 +180,6 @@ export default function Home() {
 
         </div>
       </div>
-
     </div>
   );
 }
