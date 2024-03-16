@@ -8,7 +8,7 @@ import img7 from "../../public/Images/image7.jpg";
 import img8 from "../../public/Images/img8.jpg";
 import img9 from "../../public/Images/image9.jpg";
 import img10 from "../../public/Images/image10.jpg";
-const Experiences = [
+export const Experiences = [
   {
     id: 1,
     caption:
@@ -70,4 +70,3 @@ const Experiences = [
     img: img10,
   },
 ];
-export default Experiences;

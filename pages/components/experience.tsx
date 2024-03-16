@@ -1,7 +1,8 @@
 
 import { motion, Variants } from "framer-motion";
-import Experiences from "./experiences";
+
 import Image from "next/image";
+import { Experiences } from "./experiences";
 const cardVariants: Variants = {
   offscreen: {
     y: 400
