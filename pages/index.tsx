@@ -18,10 +18,24 @@ import Image from "next/image";
 import App from "./components/experience";
 import Experience from "./components/experience";
 import ResumeModal from "./components/ResumeModal";
-import { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
+import { useRouter } from 'next/router';
 
 export default function Home() {
   const [modalVal, setModalVal] = useState(false)
+  const [navbarMove, setNavbarMove] = useState(false)
+  const inputref = React.useRef<HTMLInputElement | null>(null);
+  const scroll = () => {
+    if (window.scrollY > 160) {
+      setNavbarMove(true)
+    } else {
+      setNavbarMove(false)
+    }
+  }
+  useEffect(() => {
+    window.scrollTo(0, 0)
+    window.addEventListener("scroll", scroll)
+  }, [])
 
   const springs = useSpring({
 
@@ -40,13 +54,13 @@ export default function Home() {
       {modalVal && <ResumeModal setModalVal={setModalVal} />}
 
       <div className=" h-16">
-        <Navbar />
+        <Navbar inputref={inputref} navbarMove={navbarMove} />
       </div>
 
       <div className="flex">
         <div className="w-[35%] ">
-          <div className=" text-white fixed h-screen w-[35%]">
-            <div className=" flex flex-col gap-3 items-start justify-center pl-8 absolute z-10 top-[-65px] w-[80%] h-full bg-slate-950 ">
+          <div className=" -ml-4 text-white fixed h-screen w-[35%]">
+            <div className=" flex flex-col gap-3 items-start z-10 justify-center pl-8 absolute  top-[-65px] w-[80%] mt-32 ">
               <animated.div
                 style={{
                   ...reversSprings
@@ -60,14 +74,16 @@ export default function Home() {
                   ...springs
                 }}>
                 <p>Hey! How nice of you to look at my personal site, Thank you!.</p>
-                <button onClick={() => setModalVal(true)} className=" w-1/3 border-2 p-2 flex items-center justify-center transition-all rounded-sm hover:bg-sky-300 hover:text-black">view resume</button>
+                <button
+                  onClick={() => setModalVal(true)}
+                  className=" mt-3 z-50 w-1/3 border-2 p-2 flex items-center justify-center transition-all rounded-sm hover:bg-sky-300 hover:text-black">view resume</button>
               </animated.div>
               <animated.div
-                className="flex flex-col gap-2"
+                className=" py-6 flex flex-col gap-2"
                 style={{
                   ...reversSprings
                 }}>
-                <div className="flex items-center gap-2 text-[16px]">
+                <div className="flex my-2 items-center gap-2 text-[16px]">
                   <FaPhoneAlt className=" text-2xl" />
                   09305485308
                 </div>
@@ -82,12 +98,12 @@ export default function Home() {
               </animated.div>
 
             </div>
-            <div className=" bottom-10 -right-5 absolute rounded-full w-[170%] h-[800px] border-t-[4px] border-l-2  border-r-[3px] animate-[spin_8s_ease-in-out_infinite] border-sky-300 whitespace-normal">
+            <div className=" mr-4 bottom-10 -right-5 absolute rounded-full w-[170%] h-[800px] border-t-[4px]   border-r-[2px] animate-[spin_8s_ease-in-out_infinite] border-sky-300 whitespace-normal">
             </div>
           </div>
         </div>
         <div className=" p-12 flex flex-col text-white w-[65%]">
-          <div className="flex">
+          <div className=" -ml-10 flex">
             <div className=" w-2/3">
               <animated.div
                 style={{
@@ -163,20 +179,22 @@ export default function Home() {
                 </div>
               </animated.div>
             </div>
-            <div className=" flex items-center h-screen justify-center w-1/3">
+            <div onClick={() => inputref.current?.scrollIntoView({
+              behavior: "auto"
+            })} className=" flex items-center h-screen justify-center w-1/3">
               <animated.div
 
                 style={{
                   ...reversSprings,
                 }}
               >
-                <Image className=" ml-5 mb-64 rounded-xl " alt="" src={profile} />
+                <Image className="  mb-64 rounded-xl " alt="" src={profile} />
 
               </animated.div>
 
             </div>
           </div>
-          <Experience />
+          <Experience inputref={inputref} />
 
         </div>
       </div>
