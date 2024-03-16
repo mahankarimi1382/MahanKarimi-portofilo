@@ -1,7 +1,7 @@
 
 import React from 'react'
 import { animated, useSpring } from '@react-spring/web'
-import resume from "../../public/Images/resume.png"
+import resume from "../public/Images/resume.png"
 import Image from 'next/image'
 
 function ResumeModal({setModalVal}:any) {

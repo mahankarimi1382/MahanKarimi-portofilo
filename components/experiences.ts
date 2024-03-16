@@ -1,14 +1,14 @@
-import img1 from "../../public/Images/Image1.jpg";
-import img2 from "../../public/Images/Image2.jpg";
-import img3 from "../../public/Images/image3.jpg";
-import img4 from "../../public/Images/image4.jpg";
-import img5 from "../../public/Images/image5.jpg";
-import img6 from "../../public/Images/image6.jpg";
-import img7 from "../../public/Images/image7.jpg";
-import img8 from "../../public/Images/img8.jpg";
-import img9 from "../../public/Images/image9.jpg";
-import img10 from "../../public/Images/image10.jpg";
-export const Experiences = [
+import img1 from "../public/Images/Image1.jpg";
+import img2 from "../public/Images/Image2.jpg";
+import img3 from "../public/Images/image3.jpg";
+import img4 from "../public/Images/image4.jpg";
+import img5 from "../public/Images/image5.jpg";
+import img6 from "../public/Images/image6.jpg";
+import img7 from "../public/Images/image7.jpg";
+import img8 from "../public/Images/img8.jpg";
+import img9 from "../public/Images/image9.jpg";
+import img10 from "../public/Images/image10.jpg";
+export const experiences = [
   {
     id: 1,
     caption:

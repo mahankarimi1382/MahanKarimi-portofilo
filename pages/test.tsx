@@ -1,5 +1,5 @@
 import React from 'react'
-import LoadingPg from './components/LoadingPg'
+import LoadingPg from '../components/LoadingPg'
 
 function test() {
     return (

@@ -1,5 +1,5 @@
 import { FaLinkedin } from "react-icons/fa6";
-import Navbar from "./components/Navbar"
+import Navbar from "../components/Navbar"
 import { animated, useSpring } from '@react-spring/web'
 import { FaGithub } from "react-icons/fa";
 import { FaPhoneAlt } from "react-icons/fa";
@@ -15,9 +15,9 @@ import { SiMui } from "react-icons/si";
 
 import profile from "../public/Images/Profile.jpeg"
 import Image from "next/image";
-import App from "./components/experience";
-import Experience from "./components/experience";
-import ResumeModal from "./components/ResumeModal";
+import App from "../components/experience";
+import Experience from "../components/experience";
+import ResumeModal from "../components/ResumeModal";
 import React, { useEffect, useRef, useState } from "react";
 import { useRouter } from 'next/router';
 

@@ -2,7 +2,7 @@
 import { motion, Variants } from "framer-motion";
 
 import Image from "next/image";
-import { Experiences } from "./experiences";
+import { experiences } from "./experiences";
 const cardVariants: Variants = {
   offscreen: {
     y: 400
@@ -20,7 +20,7 @@ const cardVariants: Variants = {
 
 export default function Experience({ inputref }: any) {
   const Showexperiences = () => {
-    let mapped = Experiences.map((item) => {
+    let mapped = experiences.map((item) => {
       return (
 
         <motion.div
